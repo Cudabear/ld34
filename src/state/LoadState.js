@@ -36,7 +36,7 @@ LoadState.prototype = {
     },
 
     create: function(){
-        game.state.start('MainState');
+        game.state.start('SelectState');
     },
 
     update: function(){

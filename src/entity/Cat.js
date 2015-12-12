@@ -5,8 +5,8 @@ Cat = function(x, y){
 
 Cat.prototype = {
 	sprite: null,
-	maxSpeed: 400,
-	friction: 40, //maxspeed/10
+	maxSpeed: 200,
+	friction: 20, //maxspeed/10
 	seeds: null,
 	isAlive: true,
 
@@ -15,6 +15,7 @@ Cat.prototype = {
 		this.sprite.anchor.setTo(0.5);
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.collideWorldBounds = true;
+		this.sprite.body.setSize(this.sprite.width-12, this.sprite.height-8, 6, 4)
 		this.seeds = [];
 	},
 

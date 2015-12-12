@@ -2,7 +2,6 @@ MainState = function(){ }
 
 MainState.prototype = {
     currentLevel: null,
-    currentLevelIndex: -1,
 
     effects: [],
     backdrop: null,
@@ -34,7 +33,7 @@ MainState.prototype = {
         game.plugins.add(Phaser.Plugin.PhaserIlluminated);
 
 
-        this.currentLevel = new Level('test');
+        this.currentLevel = new Level(Config.currentLevel, this);
     },
 
     update: function(){
@@ -56,32 +55,38 @@ MainState.prototype = {
     },
 
     render: function(){
-
+        this.currentLevel.render();
     },
 
     gameOver: function(){
-        console.log('gameover!');
+        this.restartLevel();
     },
 
     nextLevel: function(){
-        this.currentLevelIndex++;
-
-        var index = 0;
-        var tileMapKey = 0;
+        var grabNext = false;
+        var tileMapKey = Config.currentLevel
         for(var key in game.cache._tilemaps){
-            if(this.currentLevelIndex == index){
+            if(grabNext){
                 tileMapKey = key;
+                break;
             }
-
-            index++;
+            if(Config.currentLevel == key){
+                grabNext = true;
+            }
         }
 
-        this.currentLevel.destroy();
-        this.currentLevel = new Level(tileMapKey);
+        if(tileMapKey != Config.currentLevel){
+            this.currentLevel.destroy();
+            this.currentLevel = new Level(tileMapKey, this);
+            Config.currentLevel = tileMapKey;
+            this.currentLevelIndex++;
+        }else{
+            game.state.start('SelectState');
+        }
     },
 
     restartLevel: function(){
         this.currentLevel.destroy();
-        this.currentLevel = new Level(this.currentLevel.tileMapId);
+        this.currentLevel = new Level(this.currentLevel.tileMapId, this);
     }
 }

@@ -1,6 +1,6 @@
-Level = function(tileMapId){
+Level = function(tileMapId, main){
 	this.tileMapId = tileMapId;
-
+	this.main = main;
 	this._create();
 }
 
@@ -101,15 +101,18 @@ Level.prototype = {
 		if(!this.cat.isAlive){
 			main.gameOver();
 		}
-
-		if(this.finished){
-			this.destroy();
-			main.nextLevel();
-		}
 	},
 
+	render: function(){
+		game.debug.body(this.cat.sprite);
+		this.plants.forEach(function(plant){
+			game.debug.body(plant.sprite);
+		}, this);
+	}, 
+
 	finish: function(){
-		console.log('finished level!');
+		this.destroy();
+		this.main.nextLevel();
 	},
 
 	_parseSpawnLayer: function(){

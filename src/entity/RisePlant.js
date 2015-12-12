@@ -12,11 +12,12 @@ RisePlant.prototype = {
 		this.sprite.animations.add('shrink', [3, 2, 1, 0]);
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.immovable = true;
+		this.sprite.body.setSize(26, 16, 3, 16);
 		this.sprite.body.allowGravity = false;
 	},
 
 	doGrow: function(){
-		this.sprite.animations.play('grow', 8, false);
+		this.sprite.animations.play('grow', 30, false);
 	},
 
 	doShrink: function(){
@@ -26,7 +27,7 @@ RisePlant.prototype = {
 	update: function(cat){
 		if(game.physics.arcade.intersects(this.sprite.body, cat.sprite.body)){
 			this.doGrow();
-			cat.sprite.body.velocity.y = -150;
+			cat.sprite.body.velocity.y = -350;
 		}
 	}
 }

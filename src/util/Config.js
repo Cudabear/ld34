@@ -6,6 +6,7 @@ Config = {
         {key: "cat", imagePath: "res/img/cat.png"},
         {key: "bug", imagePath: "res/img/bug.png"},
         {key: "cloud", imagePath: "res/img/cloud.png"},
+        {key: "level", imagePath: "res/img/level.png"},
         {key: "backdrop", imagePath: "res/img/backdrop.png"},
         {key: "burnplant", imagePath: "res/img/burnplant.png"},
         {key: "boomplant", imagePath: "res/img/boomplant.png"},
@@ -22,10 +23,14 @@ Config = {
     //tilemaps are assumed to be Tiled JSON.
     tileMaps: [
         //{key: "MapKey", jsonPath: "path/to/json"}
-        {key: "test", jsonPath: "res/level/test.json"}
+        {key: "test", jsonPath: "res/level/test.json"},
+        {key: "Fall", jsonPath: "res/level/beginning.json"},
+        {key: "Rise", jsonPath: "res/level/2.json"},
+        {key: "Jump", jsonPath: "res/level/3.json"},
     ],
     fonts: [
         //{key: "FontKey", imagePath: "path/to/image", xmlPath: "path/to/XML"}
+        {key: "font", imagePath: "res/font/font.png", xmlPath: "res/font/font.xml"}
     ],
     sfx: [
         //{key: "SfxKey", filePath: "path/to/audiofile"}
