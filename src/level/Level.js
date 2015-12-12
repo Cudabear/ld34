@@ -12,27 +12,68 @@ Level.prototype = {
 	mapLayer: null,
 	spawnsLayer: null,
 
-	plants: [],
-	seeds: [],
-	bugs: [],
+	plants: null,
+	seeds: null,
+	bugs: null,
+	flutter: null,
+	cat: null,
+
+	finished: false,
 
 
 	_create: function(){
 		this.tileMap = game.add.tilemap(this.tileMapId);
 		this.tileMap.addTilesetImage('tileset','tileset');
 		
+		this.plants = [];
+		this.seeds = [];
+		this.bugs = [];
+
 		this.collisionLayer = this.tileMap.createLayer('collision');
 		this.tileMap.setCollisionBetween(1, 500, true, this.collisionLayer);
 		this.collisionLayer.alpha = 0;
+		this.collisionLayer.resizeWorld();
 		this.spawnsLayer = this.tileMap.createLayer('spawns');
 		this.spawnsLayer.alpha = 0;
-		this.tileMap.createLayer('detail');
+		this.detailLayer = this.tileMap.createLayer('detail');
 		this.mapLayer = this.tileMap.createLayer('level');
 
 		this._parseSpawnLayer();
 	},
 
-	update: function(cat){
+	destroy: function(){
+		if(this.cat){
+			this.cat.destroy();
+		}
+
+		if(this.flutter){
+			this.flutter.sprite.destroy();
+		}
+
+		this.plants.forEach(function(plant){
+			plant.sprite.destroy();
+		}, this);
+
+		this.seeds.forEach(function(seed){
+			seed.destroy();
+		}, this);
+
+		this.bugs.forEach(function(bug){
+			bug.sprite.destroy();
+		}, this);
+
+		if(this.tileMap){
+			this.tileMap.destroy();
+			this.spawnsLayer.destroy();
+			this.detailLayer.destroy();
+			this.mapLayer.destroy();
+			this.collisionLayer.destroy();
+		}
+	},
+
+	update: function(main){
+		this.cat.update(this);
+
 		for(var i = this.bugs.length - 1; i >= 0; i--){
 			var bug = this.bugs[i];
 			bug.update(this);
@@ -48,18 +89,35 @@ Level.prototype = {
 
 		for(var i = this.plants.length - 1; i >= 0; i--){
 			var plant = this.plants[i];
-			plant.update(cat, this);
+			plant.update(this.cat, this);
 
 			if(!plant.isAlive){
 				this.plants.splice(i, 1);
 			}
 		}
+
+		this.flutter.update(this.cat, this);
+
+		if(!this.cat.isAlive){
+			main.gameOver();
+		}
+
+		if(this.finished){
+			this.destroy();
+			main.nextLevel();
+		}
+	},
+
+	finish: function(){
+		console.log('finished level!');
 	},
 
 	_parseSpawnLayer: function(){
 		var tiles = this.spawnsLayer.layer.data;
 		var seedSpawnTiles = [];
 		var bugSpawnTiles = [];
+		var exitTile = null;
+		var catSpawnTile = null;
 
 		for(var row = 0; row < tiles.length; row++){
 			for(var col = 0; col < tiles[row].length; col++){
@@ -72,8 +130,19 @@ Level.prototype = {
 				if(tile.index == 394){
 					bugSpawnTiles.push(tile);;
 				}
+
+				if(tile.index == 393){
+					exitSpawnTile = tile;
+				}
+
+				if(tile.index == 392){
+					catSpawnTile = tile;
+				}
 			}
 		}
+
+		this.flutter = new Flutter(exitSpawnTile.x*this.tileMap.tileWidth, exitSpawnTile.y*this.tileMap.tileHeight);
+		this.cat = new Cat(catSpawnTile.x*this.tileMap.tileWidth, catSpawnTile.y*this.tileMap.tileHeight)
 
 		bugSpawnTiles.forEach(function(tile){
 			this.bugs.push(new Bug(tile.x*this.tileMap.tileWidth, tile.y*this.tileMap.tileHeight));

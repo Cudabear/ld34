@@ -17,7 +17,7 @@ BoomPlant.prototype = {
 	},
 
 	doGrow: function(){
-		this.sprite.animations.play('grow', 8, false);
+		this.sprite.animations.play('grow', 2, false);
 	},
 
 	explode: function(level){

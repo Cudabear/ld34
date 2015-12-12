@@ -5,6 +5,8 @@ Config = {
         //{key: "SpriteKey", imagePath: "path/to/image"}
         {key: "cat", imagePath: "res/img/cat.png"},
         {key: "bug", imagePath: "res/img/bug.png"},
+        {key: "cloud", imagePath: "res/img/cloud.png"},
+        {key: "backdrop", imagePath: "res/img/backdrop.png"},
         {key: "burnplant", imagePath: "res/img/burnplant.png"},
         {key: "boomplant", imagePath: "res/img/boomplant.png"},
         {key: "bridgeplant", imagePath: "res/img/bridgeplant.png"},
@@ -14,7 +16,8 @@ Config = {
     ],
     animSprites: [
         //{key: "SpriteKey", imagePath: "path/to/image", jsonPath: "path/to/json"}
-        {key: "risegrowth", imagePath: "res/img/risegrowth.png", jsonPath: "res/img/risegrowth.json"}
+        {key: "risegrowth", imagePath: "res/img/risegrowth.png", jsonPath: "res/img/risegrowth.json"},
+        {key: "flutter", imagePath: "res/img/flutter.png", jsonPath: "res/img/flutter.json"}
     ],
     //tilemaps are assumed to be Tiled JSON.
     tileMaps: [

@@ -44,6 +44,7 @@ BurnPlant.prototype = {
 		var below = level.tileMap.getTileBelow(0, tile.x, tile.y);
 
 		level.tileMap.removeTile(tile.x, tile.y, level.mapLayer);
+		level.tileMap.removeTile(tile.x, tile.y, level.collisionLayer);
 		this.doGrow();
 
 		if(left && left.index == 3){
