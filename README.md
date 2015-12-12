@@ -16,16 +16,14 @@ ART:
 	    - Kill animation
 	    - Death animation
 	- Rising Platform plant
-	    - Idle animation
-	    - Growing animation
+	    - Idle animation UNNECESSARY
+	    - Growing animation DONE
 	- Burning Plant
 		- Idle animation
 		- Growing animation
 		- Burn animation
-	- Thorn Door
+	- Thorns
 	    - Burned down animation
-	- Thorn floor
-		- Burned down animation
 	- Venus fly trap
 	    - idle animation
 	    - growing animation
@@ -50,18 +48,18 @@ ART:
     - Bitmap font
 
 LOGIC:
-	- Main Character (cat)
-		- move left/right with arrow keys
-		- fall off cliffs
-		- die when contact enemy
-		- collect seeds by walking over (add to FIFO queue)
-		- plant seeds by walking over ground (pop from FIFO queue)
+	- Main Character (cat) 
+		- move left/right with arrow keys DONE
+		- fall off cliffs DONE
+		- die when contact enemy DONE
+		- collect seeds by walking over (add to FIFO queue) DONE
+		- plant seeds by walking over ground (pop from FIFO queue) DONE
 	- Enemy (swarm of bees)
-	    - pace across avalible space on platform
-	    - kill main character when contact
+	    - pace across avalible space on platform DONE
+	    - kill main character when contact DONE
 	    - die when contact venus fly trap
 	- Rising Platform plant
-	    - when grown, push main character up to configured height
+	    - when grown, push main character up to configured height DONE (SORT OF)
 	- Burning Plant
 		- when grown, burn down any connecting thorns
 	- Thorn Door

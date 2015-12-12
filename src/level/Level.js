@@ -33,17 +33,27 @@ Level.prototype = {
 	},
 
 	update: function(cat){
-		this.bugs.forEach(function(bug){
+		for(var i = this.bugs.length - 1; i >= 0; i--){
+			var bug = this.bugs[i];
 			bug.update(this);
-		}, this);
+
+			if(!bug.alive){
+				this.bugs.splice(i, 1);
+			}
+		}
 
 		this.seeds.forEach(function(seed){
 			game.physics.arcade.collide(seed, this.collisionLayer);
 		}, this);
 
-		this.plants.forEach(function(plant){
-			plant.update(cat)
-		}, this);
+		for(var i = this.plants.length - 1; i >= 0; i--){
+			var plant = this.plants[i];
+			plant.update(cat, this);
+
+			if(!plant.isAlive){
+				this.plants.splice(i, 1);
+			}
+		}
 	},
 
 	_parseSpawnLayer: function(){
@@ -102,6 +112,18 @@ Level.prototype = {
 		switch(tile.hasSeed){
 			case "riseplant":
 				plant = new RisePlant(tile, this);
+			break;
+			case "burnplant":
+				plant = new BurnPlant(tile, this);
+			break;
+			case "eatplant":
+				plant = new EatPlant(tile, this);
+			break;
+			case "boomplant":
+				plant = new BoomPlant(tile, this);
+			break;
+			case "bridgeplant":
+				plant = new BridgePlant(tile, this);
 			break;
 		}
 

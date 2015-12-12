@@ -5,8 +5,8 @@ Cat = function(x, y){
 
 Cat.prototype = {
 	sprite: null,
-	maxSpeed: 200,
-	friction: 20, //maxspeed/10
+	maxSpeed: 400,
+	friction: 40, //maxspeed/10
 	seeds: [],
 
 	_create: function(x, y){

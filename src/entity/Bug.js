@@ -8,6 +8,7 @@ Bug.prototype = {
 	direction: 0,
 	maxSpeed: 80,
 	friction: 8,
+	alive: true,
 
 	_create: function(x, y){
 		this.sprite = game.add.sprite(x, y, 'bug');
@@ -18,32 +19,38 @@ Bug.prototype = {
 	},
 
 	update: function(currentLevel){
-		game.physics.arcade.collide(this.sprite, currentLevel.collisionLayer, this._levelCollisionHandler, null, this);
+		if(this.alive){
+			game.physics.arcade.collide(this.sprite, currentLevel.collisionLayer, this._levelCollisionHandler, null, this);
 
-		this.sprite.scale.x = this.direction;
-		if(this.direction == -1){
-			if(this.sprite.body.velocity.x > -this.maxSpeed){
-				this.sprite.body.velocity.x -= this.friction;
-			}
+			this.sprite.scale.x = this.direction;
+			if(this.direction == -1){
+				if(this.sprite.body.velocity.x > -this.maxSpeed){
+					this.sprite.body.velocity.x -= this.friction;
+				}
 
-			if(!Utils.getCollidingTileAtPixel(this.sprite.x - currentLevel.tileMap.tileWidth, this.sprite.y + this.sprite.height/2, currentLevel)){
-				this.direction = 1;
-			}
-		}else{
-			if(this.sprite.body.velocity.x < this.maxSpeed){
-				this.sprite.body.velocity.x += this.friction;
-			}
+				if(!Utils.getCollidingTileAtPixel(this.sprite.x - currentLevel.tileMap.tileWidth, this.sprite.y + this.sprite.height/2, currentLevel)){
+					this.direction = 1;
+				}
+			}else{
+				if(this.sprite.body.velocity.x < this.maxSpeed){
+					this.sprite.body.velocity.x += this.friction;
+				}
 
-			if(!Utils.getCollidingTileAtPixel(this.sprite.x + currentLevel.tileMap.tileWidth, this.sprite.y + this.sprite.height/2, currentLevel)){
-				this.direction = -1;
-			}
-		}
-
+				if(!Utils.getCollidingTileAtPixel(this.sprite.x + currentLevel.tileMap.tileWidth, this.sprite.y + this.sprite.height/2, currentLevel)){
+					this.direction = -1;
+				}
+			}	
+		}	
 	},
 
 	_levelCollisionHandler: function(me, level){
 		if(me.body.onWall()){
 			this.direction *= -1;
 		}
+	},
+
+	kill: function(){
+		this.sprite.destroy();
+		this.alive = false;
 	}
 }

@@ -1,8 +1,8 @@
-RisePlant = function(tile, level){
+EatPlant = function(tile, level){
 	this._create(tile, level);
 }
 
-RisePlant.prototype = {
+EatPlant.prototype = {
 	sprite: null,
 	isAlive: true,
 
@@ -23,10 +23,12 @@ RisePlant.prototype = {
 		this.sprite.animations.play('shrink', 4, false);
 	},
 
-	update: function(cat){
-		if(game.physics.arcade.intersects(this.sprite.body, cat.sprite.body)){
-			this.doGrow();
-			cat.sprite.body.velocity.y = -150;
-		}
+	update: function(cat, level){
+		level.bugs.forEach(function(bug){
+			if(game.physics.arcade.intersects(this.sprite.body, bug.sprite.body)){
+				this.doGrow();
+				bug.kill()
+			}
+		}, this);
 	}
 }
