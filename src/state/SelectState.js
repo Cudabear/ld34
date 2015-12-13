@@ -25,17 +25,21 @@ SelectState.prototype = {
         this.text = {};
         this.levels = [];
 
+        backdrop = game.add.sprite(0, 0, 'backdrop');
+        //game.stage.backgroundColor = '#96fffc'
+
         for(var i = 0; i < 10; i++){
             var yPos = Math.random()*game.height/2.2 - 100;
             var xPos = Math.random()*(game.width + 200);
             var velocity = Math.random()*1;
-            var scale = Math.random()*0.4 + 0.8;
-            var effect = game.add.sprite(xPos, yPos, 'cloud');
+            var effect = game.add.sprite(xPos, yPos, 'cloud'+(Math.round(Math.random()*4)+1));
             effect.velocity = velocity;
-            effect.scale.setTo(scale);
-
+            effect.scale.setTo(0.5);
             this.effects.push(effect);
         }
+
+        //remove this line if not using lighting effects
+        game.plugins.add(Phaser.Plugin.PhaserIlluminated);
 
         if(!bgm){
             bgm = game.add.audio('bgm');
@@ -79,8 +83,6 @@ SelectState.prototype = {
         if(!explodeFx){
             explodeFx = game.add.audio('explode');
         }
-
-        backdrop = game.add.sprite(0, 0, 'backdrop');
 
         text.titleText = game.add.bitmapText(game.world.centerX, 50, 'font', 'Game Name Goes Here', 38);
         text.titleText.anchor.setTo(0.5);

@@ -8,34 +8,29 @@ ART:
 		- Idle animation DONE
 		- Walk animation DONE
 		- fall animation DONE
-		- Death animation
-		- collect seeds animation
+		- Death animation DONE
 	- Enemy (swarm of bees) DONE
 	    - Idle animation DONE
 	    - Kill animation DONE
 	    - Death animation DONE
 	- Rising Platform plant
-	    - Idle animation UNNECESSARY
 	    - Growing animation DONE
 	    - Plant animation
 	- Burning Plant
-		- Idle animation
 		- Growing animation
 		- Burn animation
 	- Thorns
 	    - Burned down animation
 	- Venus fly trap
-	    - idle animation
 	    - growing animation
 	    - eating animation
 	- Hole digger
 	    - growing animation
 	    - dirt crumble animation
-	    - idle animation
 	- Bridge builder
 	    - growing animation
 	    - building animation
-	    - idle animation
+	    - Bridge Tile
     - Tileset
         - Fertile planting ground DONE
         - random decoration tiles DONE
@@ -72,6 +67,7 @@ LOGIC:
 	    - fill any open space on the left or right of fertal ground tile with solid tile DONE
     - Level loading/switching/selecting DONE
     - End screen with tons of butterflies and main character
+    - 9/20 levels designed
 
 SOUND:
 	- Background music DONE

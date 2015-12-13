@@ -114,6 +114,7 @@ Cat.prototype = {
 		this.sprite.body.allowGravity = false;
 		hurtFx.play();
 		this.sprite.bringToTop();
+		Config.retries++;
 	},
 
 	_levelCollisionHandler: function(cat, tile){

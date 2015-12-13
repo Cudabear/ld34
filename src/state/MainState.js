@@ -13,21 +13,18 @@ MainState.prototype = {
     create: function(){
         game.physics.startSystem(Phaser.Physics.ARCADE);
         game.physics.arcade.gravity.y = 750;
-        game.stage.backgroundColor = '#96fffc'
+        backdrop = game.add.sprite(0, 0, 'backdrop');
+        //game.stage.backgroundColor = '#96fffc'
 
         for(var i = 0; i < 10; i++){
             var yPos = Math.random()*game.height/2.2 - 100;
             var xPos = Math.random()*(game.width + 200);
             var velocity = Math.random()*1;
-            var scale = Math.random()*0.6 + 0.6;
-            var effect = game.add.sprite(xPos, yPos, 'cloud');
+            var effect = game.add.sprite(xPos, yPos, 'cloud'+(Math.round(Math.random()*4)+1));
             effect.velocity = velocity;
-            effect.scale.setTo(scale);
-
+            effect.scale.setTo(0.5);
             this.effects.push(effect);
         }
-
-        backdrop = game.add.sprite(0, 0, 'backdrop');
 
         //remove this line if not using lighting effects
         game.plugins.add(Phaser.Plugin.PhaserIlluminated);
@@ -56,6 +53,10 @@ MainState.prototype = {
                 effect.x = game.width + 200;
             }
         }, this);
+
+        if(this.backButton){
+            this.backButton.bringToTop();
+        }
     },
 
     render: function(){
@@ -92,5 +93,6 @@ MainState.prototype = {
     restartLevel: function(){
         this.currentLevel.destroy();
         this.currentLevel = new Level(this.currentLevel.tileMapId, this);
+        Config.retries++;
     }
 }

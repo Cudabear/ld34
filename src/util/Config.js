@@ -1,14 +1,19 @@
 Config = {
     name: "ReplaceWithGameName",
     version: "0.0.0",
+    retries: 0,
     sprites: [
         //{key: "SpriteKey", imagePath: "path/to/image"}
         {key: "cat", imagePath: "res/img/cat.png"},
         {key: "bug", imagePath: "res/img/bug.png"},
-        {key: "cloud", imagePath: "res/img/cloud.png"},
+        {key: "cloud1", imagePath: "res/img/cloud.png"},
+        {key: "cloud2", imagePath: "res/img/cloud2.png"},
+        {key: "cloud3", imagePath: "res/img/cloud3.png"},
+        {key: "cloud4", imagePath: "res/img/cloud4.png"},
+        {key: "cloud5", imagePath: "res/img/cloud5.png"},
         {key: "level", imagePath: "res/img/level.png"},
         {key: "back", imagePath: "res/img/backarrow.png"},
-        {key: "backdrop", imagePath: "res/img/backdrop.png"},
+        {key: "backdrop", imagePath: "res/img/background.png"},
         {key: "burnplant", imagePath: "res/img/burnplant.png"},
         {key: "boomplant", imagePath: "res/img/boomplant.png"},
         {key: "bridgeplant", imagePath: "res/img/bridgeplant.png"},

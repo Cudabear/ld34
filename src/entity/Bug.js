@@ -14,7 +14,7 @@ Bug.prototype = {
 		this.sprite = game.add.sprite(x, y, 'hornets');
 		this.sprite.anchor.setTo(0.5);
 		this.sprite.scale.setTo(0.4);
-		this.sprite.animations.add('fly', [0,1,2,3]);
+		this.sprite.animations.add('fly', [0,1,2,3,2,1]);
 		this.sprite.animations.add('die', [4,5,6,7]);
 		this.direction = (Math.random()*2 -1) >= 0 ? 1 : -1;
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
