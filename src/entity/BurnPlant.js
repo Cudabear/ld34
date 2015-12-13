@@ -25,7 +25,7 @@ BurnPlant.prototype = {
 
 	update: function(cat, level){
 		var left = Utils.getMapTileAtPixel(this.sprite.x - this.sprite.width/2 - 5, this.sprite.y - this.sprite.height/2, level);
-		var right = Utils.getMapTileAtPixel(this.sprite.x + this.sprite.width*1.5 + 5, this.sprite.y - this.sprite.height/2, level);
+		var right = Utils.getMapTileAtPixel(this.sprite.x + this.sprite.width, this.sprite.y - this.sprite.height/2, level);
 
 		if(left && left.index == 3){
 			this._burn(left, level);

@@ -1,5 +1,6 @@
 SelectState = function(){ }
 
+var bgm = null;
 SelectState.prototype = {
     effects: null,
     text: null,
@@ -26,6 +27,9 @@ SelectState.prototype = {
 
             this.effects.push(effect);
         }
+
+        bgm = game.add.audio('bgm');
+        bgm.play('', 0, 1, true);
 
         backdrop = game.add.sprite(0, 0, 'backdrop');
 
@@ -57,7 +61,7 @@ SelectState.prototype = {
 
     createLevelLinks: function(){
         for(var key in game.cache._tilemaps){
-            var level = game.add.sprite(20+(this.levels.length%5)*128, 150, 'level');
+            var level = game.add.sprite(20+(this.levels.length%7)*128, 150 + Math.floor(this.levels.length/7)*128, 'level');
             level.titleText = game.add.bitmapText(level.x + level.width/2, level.y + level.height/2, 'font', key, 10);
             level.titleText.anchor.setTo(0.5);
             level.inputEnabled = true;

@@ -11,8 +11,11 @@ Bug.prototype = {
 	alive: true,
 
 	_create: function(x, y){
-		this.sprite = game.add.sprite(x, y, 'bug');
+		this.sprite = game.add.sprite(x, y, 'hornets');
 		this.sprite.anchor.setTo(0.5);
+		this.sprite.scale.setTo(0.4);
+		this.sprite.animations.add('fly', [0,1,2,3]);
+		this.sprite.animations.add('die', [4,5,6,7]);
 		this.direction = (Math.random()*2 -1) >= 0 ? 1 : -1;
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.bounce.setTo(1);
@@ -22,7 +25,7 @@ Bug.prototype = {
 		if(this.alive){
 			game.physics.arcade.collide(this.sprite, currentLevel.collisionLayer, this._levelCollisionHandler, null, this);
 
-			this.sprite.scale.x = this.direction;
+			this.sprite.scale.x = this.direction*0.3;
 			if(this.direction == -1){
 				if(this.sprite.body.velocity.x > -this.maxSpeed){
 					this.sprite.body.velocity.x -= this.friction;
@@ -40,6 +43,8 @@ Bug.prototype = {
 					this.direction = -1;
 				}
 			}	
+
+			this.sprite.animations.play('fly', Math.random()*2 +1, false);
 		}	
 	},
 

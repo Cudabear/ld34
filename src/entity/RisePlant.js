@@ -27,7 +27,7 @@ RisePlant.prototype = {
 	update: function(cat){
 		if(game.physics.arcade.intersects(this.sprite.body, cat.sprite.body)){
 			this.doGrow();
-			cat.sprite.body.velocity.y = -350;
+			cat.sprite.body.velocity.y = -400;
 		}
 	}
 }

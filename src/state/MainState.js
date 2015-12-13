@@ -2,6 +2,7 @@ MainState = function(){ }
 
 MainState.prototype = {
     currentLevel: null,
+    backButton: null,
 
     effects: [],
     backdrop: null,
@@ -19,7 +20,7 @@ MainState.prototype = {
             var yPos = Math.random()*game.height/2.2 - 100;
             var xPos = Math.random()*(game.width + 200);
             var velocity = Math.random()*1;
-            var scale = Math.random()*0.4 + 0.8;
+            var scale = Math.random()*0.6 + 0.6;
             var effect = game.add.sprite(xPos, yPos, 'cloud');
             effect.velocity = velocity;
             effect.scale.setTo(scale);
@@ -34,6 +35,10 @@ MainState.prototype = {
 
 
         this.currentLevel = new Level(Config.currentLevel, this);
+
+        this.backbutton = game.add.sprite(10, game.height - 64, 'back');
+        this.backbutton.inputEnabled = true;
+        this.backbutton.events.onInputDown.add(function(){ game.state.start('SelectState');})
     },
 
     update: function(){

@@ -7,7 +7,6 @@ ART:
 	- Main Character (cat)
 		- Idle animation
 		- Walk animation
-		- Plant animation
 		- fall animation
 		- Death animation
 		- collect seeds animation
@@ -18,6 +17,7 @@ ART:
 	- Rising Platform plant
 	    - Idle animation UNNECESSARY
 	    - Growing animation DONE
+	    - Plant animation
 	- Burning Plant
 		- Idle animation
 		- Growing animation

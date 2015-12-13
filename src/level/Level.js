@@ -104,7 +104,7 @@ Level.prototype = {
 	},
 
 	render: function(){
-		game.debug.body(this.cat.sprite);
+		//game.debug.body(this.cat.sprite);
 		this.plants.forEach(function(plant){
 			game.debug.body(plant.sprite);
 		}, this);
