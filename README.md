@@ -16,27 +16,27 @@ ART:
 	- Rising Platform plant
 	    - Growing animation DONE
 	    - Plant animation
-	- Burning Plant
-		- Growing animation
-		- Burn animation
+	- Burning Plant DONE
+		- Growing animation DONE
+		- Burn animation DONE
 	- Thorns
-	    - Burned down animation
+	    - Burned down animation DONE
 	- Venus fly trap
-	    - growing animation
-	    - eating animation
+	    - growing animation DONE
+	    - eating animation DONE
 	- Hole digger
-	    - growing animation
+	    - growing animation DONE
 	    - dirt crumble animation
 	- Bridge builder
-	    - growing animation
-	    - building animation
-	    - Bridge Tile
+	    - growing animation 
+	    - building animation 
+	    - Bridge Tile DONE
     - Tileset
         - Fertile planting ground DONE
         - random decoration tiles DONE
     - Background/forground
         - Layered background/forground DONE
-    - Butterfly
+    - Butterfly DONE
         - idle animation DONE
         - flutter animation DONE
     - Level select menu DONE

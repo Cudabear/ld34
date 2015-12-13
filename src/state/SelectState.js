@@ -45,7 +45,7 @@ SelectState.prototype = {
             bgm = game.add.audio('bgm');
         }
         if(!bgm.isPlaying){
-            //bgm.play('', 0, 1, true);
+            bgm.play('', 0, 1, true);
         }
 
         if(!jmpFx){
@@ -84,11 +84,11 @@ SelectState.prototype = {
             explodeFx = game.add.audio('explode');
         }
 
-        text.titleText = game.add.bitmapText(game.world.centerX, 50, 'font', 'Game Name Goes Here', 38);
+        text.titleText = game.add.bitmapText(game.world.centerX, 50, 'font', 'Flutter', 38);
         text.titleText.anchor.setTo(0.5);
-        text.infoText = game.add.bitmapText(game.world.centerX, 100, 'font', 'A game created in 72 hours for Ludum Dare 34.', 18);
+        text.infoText = game.add.bitmapText(game.world.centerX, 100, 'font', 'A game created in 72 hours for Ludum Dare 34.', 24);
         text.infoText.anchor.setTo(0.5);
-        text.creatorText = game.add.bitmapText(game.world.centerX, 130, 'font', 'Code and Sound by Cudabear. Art by Melda Silas.', 18);
+        text.creatorText = game.add.bitmapText(game.world.centerX, 130, 'font', 'Code and Sound by Cudabear. Art by Melda Silas.', 20);
         text.creatorText.anchor.setTo(0.5);
 
         this.createLevelLinks();
@@ -112,8 +112,8 @@ SelectState.prototype = {
 
     createLevelLinks: function(){
         for(var key in game.cache._tilemaps){
-            var level = game.add.sprite(20+(this.levels.length%7)*128, 150 + Math.floor(this.levels.length/7)*128, 'level');
-            level.titleText = game.add.bitmapText(level.x + level.width/2, level.y + level.height/2, 'font', key, 10);
+            var level = game.add.sprite(20+(this.levels.length%7)*128, 175 + Math.floor(this.levels.length/7)*128, 'level');
+            level.titleText = game.add.bitmapText(level.x + level.width/2, level.y + level.height/2, 'font', key, 14);
             level.titleText.anchor.setTo(0.5);
             level.inputEnabled = true;
             level.levelKey = key;

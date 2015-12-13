@@ -37,6 +37,7 @@ Level.prototype = {
 		this.spawnsLayer.alpha = 0;
 		this.mapLayer = this.tileMap.createLayer('level');
 		this.detailLayer = this.tileMap.createLayer('detail');
+		this.bridgeLayer = this.tileMap.createLayer('bridges');
 
 		this._parseSpawnLayer();
 	},
@@ -68,6 +69,7 @@ Level.prototype = {
 			this.detailLayer.destroy();
 			this.mapLayer.destroy();
 			this.collisionLayer.destroy();
+			this.bridgeLayer.destroy();
 		}
 	},
 

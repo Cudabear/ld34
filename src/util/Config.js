@@ -29,7 +29,8 @@ Config = {
         {key: "hornets", imagePath: "res/img/hornets.png", jsonPath: "res/img/hornets.json"},
         {key: "trapgrowth", imagePath: "res/img/venusflytrap.png", jsonPath: "res/img/venusflytrap.json"},
         {key: "firegrowth", imagePath: "res/img/fireplant.png", jsonPath: "res/img/fireplant.json"},
-        {key: "bombgrowth", imagePath: "res/img/bombplant.png", jsonPath: "res/img/bombplant.json"}
+        {key: "bombgrowth", imagePath: "res/img/bombplant.png", jsonPath: "res/img/bombplant.json"},
+        {key: "jumpgrowth", imagePath: "res/img/growing.png", jsonPath: "res/img/growing.json"}
     ],
     //tilemaps are assumed to be Tiled JSON.
     tileMaps: [
@@ -44,8 +45,17 @@ Config = {
         {key: "Order", jsonPath: "res/level/7.json"},
         {key: "Burn", jsonPath: "res/level/8.json"},
         {key: "Doors", jsonPath: "res/level/9.json"},
-        // {key: "10", jsonPath: "res/level/10.json"},
-        // {key: "11", jsonPath: "res/level/11.json"},
+        {key: "Gap", jsonPath: "res/level/10.json"},
+        {key: "Bridges", jsonPath: "res/level/11.json"},
+        {key: "Boom", jsonPath: "res/level/12.json"},
+        {key: "Process", jsonPath: "res/level/13.json"},
+        {key: "a14", jsonPath: "res/level/14.json"},
+        {key: "a15", jsonPath: "res/level/15.json"},
+        {key: "a16", jsonPath: "res/level/16.json"},
+        {key: "a17", jsonPath: "res/level/17.json"},
+        {key: "a18", jsonPath: "res/level/18.json"},
+        {key: "a19", jsonPath: "res/level/19.json"},
+        {key: "a20", jsonPath: "res/level/20.json"},
     ],
     fonts: [
         //{key: "FontKey", imagePath: "path/to/image", xmlPath: "path/to/XML"}
