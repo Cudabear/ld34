@@ -6,7 +6,6 @@ MainState.prototype = {
 
     effects: [],
     backdrop: null,
-
     preload: function(){
         console.log('preload main state');
     },

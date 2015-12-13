@@ -45,6 +45,7 @@ BurnPlant.prototype = {
 
 		level.tileMap.removeTile(tile.x, tile.y, level.mapLayer);
 		level.tileMap.removeTile(tile.x, tile.y, level.collisionLayer);
+		fireFx.play();
 		this.doGrow();
 
 		if(left && left.index == 3){

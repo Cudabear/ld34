@@ -28,6 +28,7 @@ EatPlant.prototype = {
 			if(game.physics.arcade.intersects(this.sprite.body, bug.sprite.body)){
 				this.doGrow();
 				bug.kill()
+				eatFx.play();
 			}
 		}, this);
 	}

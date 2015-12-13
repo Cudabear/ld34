@@ -45,6 +45,15 @@ Config = {
     ],
     sfx: [
         //{key: "SfxKey", filePath: "path/to/audiofile"}
+        {key: "jump", filePath: "res/audio/jump.wav"},
+        {key: "hurt", filePath: "res/audio/hurt.wav"},
+        {key: "advance", filePath: "res/audio/advance.wav"},
+        {key: "fire", filePath: "res/audio/fire.wav"},
+        {key: "spawn", filePath: "res/audio/spawn.wav"},
+        {key: "step", filePath: "res/audio/step.wav"},
+        {key: "eat", filePath: "res/audio/eat.wav"},
+        {key: "bridge", filePath: "res/audio/bridge.wav"},
+        {key: "explode", filePath: "res/audio/explosion.wav"},
     ],
     //music loops by default
     music: [

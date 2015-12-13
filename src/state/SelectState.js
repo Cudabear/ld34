@@ -1,6 +1,15 @@
 SelectState = function(){ }
 
 var bgm = null;
+var jmpFx = null;
+var hurtFx = null;
+var fireFx = null;
+var advanceFx = null;
+var spawnFx = null;
+var stepFx = null;
+var eatFx = null;
+var bridgeFx = null;
+var explodeFx = null;
 SelectState.prototype = {
     effects: null,
     text: null,
@@ -28,8 +37,48 @@ SelectState.prototype = {
             this.effects.push(effect);
         }
 
-        bgm = game.add.audio('bgm');
-        bgm.play('', 0, 1, true);
+        if(!bgm){
+            bgm = game.add.audio('bgm');
+        }
+        if(!bgm.isPlaying){
+            bgm.play('', 0, 1, true);
+        }
+
+        if(!jmpFx){
+            jmpFx = game.add.audio('jump', 0.5);
+        }
+
+        if(!hurtFx){
+            hurtFx = game.add.audio('hurt');
+        }
+
+        if(!fireFx){
+            fireFx = game.add.audio('fire');
+        }
+
+        if(!advanceFx){
+            advanceFx = game.add.audio('advance', 0.2);
+        }
+
+        if(!spawnFx){
+            spawnFx = game.add.audio('spawn', 0.2);
+        }
+
+        if(!stepFx){
+            stepFx = game.add.audio('step');
+        }
+
+        if(!eatFx){
+            eatFx = game.add.audio('eat');
+        }
+
+        if(!bridgeFx){
+            bridgeFx = game.add.audio('bridge');
+        }
+
+        if(!explodeFx){
+            explodeFx = game.add.audio('explode');
+        }
 
         backdrop = game.add.sprite(0, 0, 'backdrop');
 

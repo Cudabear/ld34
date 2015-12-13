@@ -35,8 +35,8 @@ Level.prototype = {
 		this.collisionLayer.resizeWorld();
 		this.spawnsLayer = this.tileMap.createLayer('spawns');
 		this.spawnsLayer.alpha = 0;
-		this.detailLayer = this.tileMap.createLayer('detail');
 		this.mapLayer = this.tileMap.createLayer('level');
+		this.detailLayer = this.tileMap.createLayer('detail');
 
 		this._parseSpawnLayer();
 	},
@@ -104,15 +104,13 @@ Level.prototype = {
 	},
 
 	render: function(){
-		//game.debug.body(this.cat.sprite);
-		this.plants.forEach(function(plant){
-			game.debug.body(plant.sprite);
-		}, this);
+		
 	}, 
 
 	finish: function(){
 		this.destroy();
 		this.main.nextLevel();
+		console.log('level complete!');
 	},
 
 	_parseSpawnLayer: function(){

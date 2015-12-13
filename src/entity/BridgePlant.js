@@ -47,6 +47,7 @@ BridgePlant.prototype = {
 		level.tileMap.putTile(4, x, y, level.mapLayer);
 		level.tileMap.putTile(400, x, y, level.collisionLayer);
 		this.doGrow();
+		bridgeFx.play();
 
 		if(left.index == -1){
 			this._grow(x-1, y, level);

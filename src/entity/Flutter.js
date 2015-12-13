@@ -27,7 +27,9 @@ Flutter.prototype = {
 
 	update: function(cat, level){
 		if(game.physics.arcade.intersects(this.sprite.body, cat.sprite.body)){
-			level.finish();
+			if(!cat.isDieing && !cat.isSpawning){
+				cat.despawn(level);
+			}
 		}
 	}
 }

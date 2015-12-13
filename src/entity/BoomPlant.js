@@ -45,6 +45,7 @@ BoomPlant.prototype = {
 
 		this.isAlive = false;
 		this.sprite.destroy();
+		explodeFx.play();
 	},
 
 	update: function(cat, level){

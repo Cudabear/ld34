@@ -26,8 +26,13 @@ RisePlant.prototype = {
 
 	update: function(cat){
 		if(game.physics.arcade.intersects(this.sprite.body, cat.sprite.body)){
-			this.doGrow();
-			cat.sprite.body.velocity.y = -400;
+			if(!cat.isDieing){
+				this.doGrow();
+				cat.sprite.body.velocity.y = -400;
+				if(!jmpFx.isPlaying){
+					jmpFx.play();
+				}
+			}
 		}
 	}
 }

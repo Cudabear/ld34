@@ -5,15 +5,15 @@ A game made in Javascript with Phaser for LD34
 
 ART:
 	- Main Character (cat)
-		- Idle animation
-		- Walk animation
-		- fall animation
+		- Idle animation DONE
+		- Walk animation DONE
+		- fall animation DONE
 		- Death animation
 		- collect seeds animation
-	- Enemy (swarm of bees)
-	    - Idle animation
-	    - Kill animation
-	    - Death animation
+	- Enemy (swarm of bees) DONE
+	    - Idle animation DONE
+	    - Kill animation DONE
+	    - Death animation DONE
 	- Rising Platform plant
 	    - Idle animation UNNECESSARY
 	    - Growing animation DONE
@@ -37,15 +37,15 @@ ART:
 	    - building animation
 	    - idle animation
     - Tileset
-        - Fertile planting ground
-        - random decoration tiles
+        - Fertile planting ground DONE
+        - random decoration tiles DONE
     - Background/forground
-        - Layered background/forground PLACEHOLDER DONE
+        - Layered background/forground DONE
     - Butterfly
         - idle animation DONE
         - flutter animation DONE
-    - Level select menu
-    - Bitmap font
+    - Level select menu DONE
+    - Bitmap font DONE?
 
 LOGIC:
 	- Main Character (cat) DONE
@@ -70,17 +70,17 @@ LOGIC:
 	    - destroy fertal ground tile when planted DONE
 	- Bridge builder DONE
 	    - fill any open space on the left or right of fertal ground tile with solid tile DONE
-    - Level loading/switching/selecting
+    - Level loading/switching/selecting DONE
     - End screen with tons of butterflies and main character
 
 SOUND:
-	- Background music
+	- Background music DONE
 		- chill, relaxing
-	- Buttefly flutter sound
-	- Growing plant sound
-	- die sound
-	- eating hornet sound
-	- collecting seed sound
+	- Buttefly flutter sound DONE
+	- Growing plant sound DONE
+	- die sound DONE
+	- eating hornet sound DONE
+	- collecting seed sound DONE
 
 
 
