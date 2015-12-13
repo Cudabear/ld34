@@ -1,7 +1,8 @@
 Config = {
-    name: "ReplaceWithGameName",
-    version: "0.0.0",
+    name: "Flutter",
+    version: "1.0.0",
     retries: 0,
+    unlockedLevels: null,
     sprites: [
         //{key: "SpriteKey", imagePath: "path/to/image"}
         {key: "cat", imagePath: "res/img/cat.png"},
@@ -35,7 +36,7 @@ Config = {
     //tilemaps are assumed to be Tiled JSON.
     tileMaps: [
         //{key: "MapKey", jsonPath: "path/to/json"}
-        {key: "test", jsonPath: "res/level/test.json"},
+        //{key: "test", jsonPath: "res/level/test.json"},
         {key: "Fall", jsonPath: "res/level/beginning.json"},
         {key: "Rise", jsonPath: "res/level/2.json"},
         {key: "Jump", jsonPath: "res/level/3.json"},
@@ -50,12 +51,7 @@ Config = {
         {key: "Boom", jsonPath: "res/level/12.json"},
         {key: "Process", jsonPath: "res/level/13.json"},
         {key: "a14", jsonPath: "res/level/14.json"},
-        {key: "a15", jsonPath: "res/level/15.json"},
-        {key: "a16", jsonPath: "res/level/16.json"},
-        {key: "a17", jsonPath: "res/level/17.json"},
-        {key: "a18", jsonPath: "res/level/18.json"},
-        {key: "a19", jsonPath: "res/level/19.json"},
-        {key: "a20", jsonPath: "res/level/20.json"},
+        {key: "a15", jsonPath: "res/level/15.json"}
     ],
     fonts: [
         //{key: "FontKey", imagePath: "path/to/image", xmlPath: "path/to/XML"}

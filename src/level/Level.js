@@ -1,9 +1,11 @@
 Level = function(tileMapId, main){
 	this.tileMapId = tileMapId;
+	currentLevelId = tileMapId;
 	this.main = main;
 	this._create();
 }
 
+var currentLevelId = "";
 Level.prototype = {
 	tileSetID: 'tileSet',
 	tileMapId: null,
@@ -103,6 +105,8 @@ Level.prototype = {
 		if(!this.cat.isAlive){
 			main.gameOver();
 		}
+
+		
 	},
 
 	render: function(){

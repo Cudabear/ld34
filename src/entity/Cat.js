@@ -120,12 +120,14 @@ Cat.prototype = {
 	_levelCollisionHandler: function(cat, tile){
 		if(tile && tile.index == 380){
 			this._die();
+			EventTracking.logEvent('die-to-thorns', 'Level: '+currentLevelId);
 		}
 	},
 
 	_bugCollisionHandler: function(cat, bug){
 		if(!bug.animations._anims.die.isPlaying){
 			this._die();
+			EventTracking.logEvent('die-to-bees', 'Level: '+currentLevelId);
 		}
 	},
 

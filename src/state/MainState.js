@@ -3,6 +3,7 @@ MainState = function(){ }
 MainState.prototype = {
     currentLevel: null,
     backButton: null,
+    RcoolDown: 100,
 
     effects: [],
     backdrop: null,
@@ -40,8 +41,12 @@ MainState.prototype = {
     update: function(){
         this.currentLevel.update(this);
 
-        if(game.input.keyboard.isDown(Phaser.Keyboard.R)){
+        if(this.RcoolDown > 0){
+            this.RcoolDown--;
+        }
+        if(game.input.keyboard.isDown(Phaser.Keyboard.R) && this.RcoolDown == 0){
             this.restartLevel();
+            this.RcoolDown = 100;
         }
 
         this.effects.forEach(function(effect){
@@ -56,6 +61,10 @@ MainState.prototype = {
 
         if(this.backButton){
             this.backButton.bringToTop();
+        }else{
+            this.backbutton = game.add.sprite(10, game.height - 64, 'back');
+            this.backbutton.inputEnabled = true;
+            this.backbutton.events.onInputDown.add(function(){ game.state.start('SelectState');})
         }
     },
 
@@ -69,7 +78,8 @@ MainState.prototype = {
 
     nextLevel: function(){
         var grabNext = false;
-        var tileMapKey = Config.currentLevel
+        var tileMapKey = Config.currentLevel;
+        var index = 0;
         for(var key in game.cache._tilemaps){
             if(grabNext){
                 tileMapKey = key;
@@ -78,15 +88,19 @@ MainState.prototype = {
             if(Config.currentLevel == key){
                 grabNext = true;
             }
+            index++;
         }
 
         if(tileMapKey != Config.currentLevel){
             this.currentLevel.destroy();
+            EventTracking.logEvent('beat-level', 'Level: '+currentLevelId);
             this.currentLevel = new Level(tileMapKey, this);
             Config.currentLevel = tileMapKey;
             this.currentLevelIndex++;
+            Config.unlockedLevels[index].unlocked = true;
         }else{
             game.state.start('SelectState');
+            EventTracking.logEvent('beat-game', 'retries: '+Config.retries);
         }
     },
 
@@ -94,5 +108,6 @@ MainState.prototype = {
         this.currentLevel.destroy();
         this.currentLevel = new Level(this.currentLevel.tileMapId, this);
         Config.retries++;
+        EventTracking.logEvent('restart-level', 'Level: '+currentLevelId);
     }
 }

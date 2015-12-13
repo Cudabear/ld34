@@ -91,6 +91,24 @@ SelectState.prototype = {
         text.creatorText = game.add.bitmapText(game.world.centerX, 130, 'font', 'Code and Sound by Cudabear. Art by Melda Silas.', 20);
         text.creatorText.anchor.setTo(0.5);
 
+        this.instructionLink = game.add.sprite(this.game.width - 128 - 20, 175 + 2*128, 'level');
+        this.instructionText = game.add.bitmapText(this.instructionLink.x + this.instructionLink.width/2,
+         this.instructionLink.y + this.instructionLink.height/2, 'font', 'Help', 14);
+        this.instructionText.anchor.setTo(0.5);
+        this.instructionLink.inputEnabled = true;
+        this.instructionLink.events.onInputDown.add(function(){
+            game.state.start('InstructionState');
+        }, this);
+
+        if(!Config.unlockedLevels){
+            Config.unlockedLevels = [];
+            for(var key in game.cache._tilemaps){
+                Config.unlockedLevels.push({'key': key, 'unlocked': false});
+            }
+        }
+
+        Config.unlockedLevels[0].unlocked = true;
+
         this.createLevelLinks();
     },
 
@@ -110,18 +128,41 @@ SelectState.prototype = {
 
     },
 
+
+
     createLevelLinks: function(){
         for(var key in game.cache._tilemaps){
-            var level = game.add.sprite(20+(this.levels.length%7)*128, 175 + Math.floor(this.levels.length/7)*128, 'level');
+            var level = game.add.sprite(160+(this.levels.length%5)*128, 175 + Math.floor(this.levels.length/5)*128, 'level');
             level.titleText = game.add.bitmapText(level.x + level.width/2, level.y + level.height/2, 'font', key, 14);
             level.titleText.anchor.setTo(0.5);
             level.inputEnabled = true;
             level.levelKey = key;
-            level.events.onInputDown.add(function(){
-                Config.currentLevel = this.levelKey;
-                game.state.start('MainState');
-            }, level)
+            var unlocked = this.isLevelUnlocked(key);
+
+            if(unlocked){
+                level.events.onInputDown.add(function(){
+                    Config.currentLevel = this.levelKey;
+                    game.state.start('MainState');
+                }, level)
+            }else{
+                level.titleText.alpha = 0.2;
+                level.titleText.setText("???");
+            }
+            
             this.levels.push(level);
+
+
         }
+    },
+
+    isLevelUnlocked: function(key){
+        var retVal = false;
+        Config.unlockedLevels.forEach(function(level){
+            if(level.key == key && level.unlocked == true){
+                retVal = true;
+            }
+        }, this);
+
+        return retVal;
     }
 }
