@@ -124,7 +124,9 @@ Cat.prototype = {
 	},
 
 	_bugCollisionHandler: function(cat, bug){
-		this._die();
+		if(!bug.animations._anims.die.isPlaying){
+			this._die();
+		}
 	},
 
 	_seedCollisionHandler: function(cat, seed){

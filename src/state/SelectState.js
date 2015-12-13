@@ -45,7 +45,7 @@ SelectState.prototype = {
             bgm = game.add.audio('bgm');
         }
         if(!bgm.isPlaying){
-            bgm.play('', 0, 1, true);
+            //bgm.play('', 0, 1, true);
         }
 
         if(!jmpFx){
@@ -57,7 +57,7 @@ SelectState.prototype = {
         }
 
         if(!fireFx){
-            fireFx = game.add.audio('fire');
+            fireFx = game.add.audio('fire', 0.5);
         }
 
         if(!advanceFx){

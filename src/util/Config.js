@@ -26,7 +26,10 @@ Config = {
         {key: "risegrowth", imagePath: "res/img/risegrowth.png", jsonPath: "res/img/risegrowth.json"},
         {key: "animcat", imagePath: "res/img/blackandwhite.png", jsonPath: "res/img/blackandwhite.json"},
         {key: "flutter", imagePath: "res/img/flutter.png", jsonPath: "res/img/flutter.json"},
-        {key: "hornets", imagePath: "res/img/hornets.png", jsonPath: "res/img/hornets.json"}
+        {key: "hornets", imagePath: "res/img/hornets.png", jsonPath: "res/img/hornets.json"},
+        {key: "trapgrowth", imagePath: "res/img/venusflytrap.png", jsonPath: "res/img/venusflytrap.json"},
+        {key: "firegrowth", imagePath: "res/img/fireplant.png", jsonPath: "res/img/fireplant.json"},
+        {key: "bombgrowth", imagePath: "res/img/bombplant.png", jsonPath: "res/img/bombplant.json"}
     ],
     //tilemaps are assumed to be Tiled JSON.
     tileMaps: [
