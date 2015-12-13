@@ -62,9 +62,9 @@ MainState.prototype = {
         if(this.backButton){
             this.backButton.bringToTop();
         }else{
-            this.backbutton = game.add.sprite(10, game.height - 64, 'back');
-            this.backbutton.inputEnabled = true;
-            this.backbutton.events.onInputDown.add(function(){ game.state.start('SelectState');})
+           // this.backbutton = game.add.sprite(10, game.height - 64, 'back');
+           // this.backbutton.inputEnabled = true;
+           // this.backbutton.events.onInputDown.add(function(){ game.state.start('SelectState');})
         }
     },
 

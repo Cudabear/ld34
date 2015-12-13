@@ -8,7 +8,7 @@ Flutter.prototype = {
 	tweenDown: null,
 
 	_create: function(x, y){
-		this.sprite = game.add.sprite(x, y, 'flutter'+Math.round(Math.random()*6));
+		this.sprite = game.add.sprite(x, y, 'flutter'+Math.round(Math.random()*5+1));
 		this.sprite.animations.add('flutter', [0, 1, 2, 3, 4, 5]);
 		this.sprite.animations.play('flutter', 8, true);
 		this.sprite.anchor.setTo(0.5);

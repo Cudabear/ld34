@@ -47,7 +47,7 @@ InstructionsState.prototype = {
         this.catSprite.animations.add('idle', [0,1]);
         this.catSprite.animations.play('idle', 0.5, true);
         this.catSprite.scale.x = -1;
-        this.flutterSprite = game.add.sprite(game.world.centerX + 20, 70, 'flutter');
+        this.flutterSprite = game.add.sprite(game.world.centerX + 20, 70, 'flutter3');
         this.flutterSprite.animations.add('flutter', [0, 1, 2, 3, 4, 5]);
         this.flutterSprite.animations.play('flutter', 4, true);
 
