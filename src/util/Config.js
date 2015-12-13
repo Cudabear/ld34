@@ -26,7 +26,12 @@ Config = {
         //{key: "SpriteKey", imagePath: "path/to/image", jsonPath: "path/to/json"}
         {key: "risegrowth", imagePath: "res/img/risegrowth.png", jsonPath: "res/img/risegrowth.json"},
         {key: "animcat", imagePath: "res/img/blackandwhite.png", jsonPath: "res/img/blackandwhite.json"},
-        {key: "flutter", imagePath: "res/img/flutter.png", jsonPath: "res/img/flutter.json"},
+        {key: "flutter1", imagePath: "res/img/flutter1.png", jsonPath: "res/img/flutter.json"},
+        {key: "flutter2", imagePath: "res/img/flutter2.png", jsonPath: "res/img/flutter.json"},
+        {key: "flutter3", imagePath: "res/img/flutter3.png", jsonPath: "res/img/flutter.json"},
+        {key: "flutter4", imagePath: "res/img/flutter4.png", jsonPath: "res/img/flutter.json"},
+        {key: "flutter5", imagePath: "res/img/flutter5.png", jsonPath: "res/img/flutter.json"},
+        {key: "flutter6", imagePath: "res/img/flutter6.png", jsonPath: "res/img/flutter.json"},
         {key: "hornets", imagePath: "res/img/hornets.png", jsonPath: "res/img/hornets.json"},
         {key: "trapgrowth", imagePath: "res/img/venusflytrap.png", jsonPath: "res/img/venusflytrap.json"},
         {key: "firegrowth", imagePath: "res/img/fireplant.png", jsonPath: "res/img/fireplant.json"},
