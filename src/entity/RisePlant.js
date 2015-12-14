@@ -14,7 +14,7 @@ RisePlant.prototype = {
 		this.sprite.anchor.setTo(0, 0.25);
 		game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 		this.sprite.body.immovable = true;
-		this.sprite.body.setSize(26, 16, 3, 16);
+		this.sprite.body.setSize(16, 1, 8, 30);
 		this.sprite.body.allowGravity = false;
 		this.doGrow();
 	},
