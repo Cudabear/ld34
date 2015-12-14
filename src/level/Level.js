@@ -118,9 +118,7 @@ Level.prototype = {
 	},
 
 	render: function(){
-		this.bugs.forEach(function(bug){
-			game.debug.body(bug.sprite);
-		}, this);
+
 	}, 
 
 	finish: function(){
