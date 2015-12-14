@@ -1,6 +1,13 @@
 <html>
 <head>
-    <title>LD34: [Theme]</title>
+    <title>LD34: Two Button Controls | Growing</title>
+
+    <!-- These things make it easier to share the website. -->
+    <meta property="og:title" content="Flutter: An HTML5 game made by Cudabear and Melda Silas." />
+    <meta property="og:description" content="Run Left.Run Right. Jump. Wait, you can't jump? Too bad." />
+    <meta property="og:site_name" content="Cuda's Games" />
+    <meta property="og:url" content="http://www.cudascubby.com/#games" />
+    <meta property="og:image" content="res/img/manfredi.png" />
     
     <!-- stylesheets -->
     <style type="text/css">
@@ -67,7 +74,7 @@
 
         <div id="footer"> 
             <div id="text">
-                <span>Created by Cudabear for Ludum Dare #34: [Theme].  Do not Redistribute without Permission.  Looking for the main website?
+                <span>Created by Cudabear for Ludum Dare #34: Two Button Controls | Growing.  Do not Redistribute without Permission.  Looking for the main website?
                     <a href="..">Click Here!</a>
                 </span>
             </div>
@@ -92,9 +99,15 @@
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+        window.isDev = function(){
+            return (window.location.href.indexOf('localhost') > -1);
+        }
+
         //UA-36591829-2 is for Cuda's Cubby.  Replace with your own google-provided code if you use this workbench.
         ga('create', 'UA-36591829-2', 'auto');
-        ga('send', 'pageview');
+        if(!isDev()){
+            ga('send', 'pageview');
+        }
     </script>
     <!-- entry file of javascript structure -->
     <script type="text/javascript" src="app.js"></script>

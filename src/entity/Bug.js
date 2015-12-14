@@ -54,8 +54,10 @@ Bug.prototype = {
 	},
 
 	_levelCollisionHandler: function(me, level){
-		if(me.body.onWall()){
-			this.direction *= -1;
+		if(me.body.blocked.right){
+			this.direction = -1;
+		}else if(me.body.blocked.left){
+			this.direction = 1;
 		}
 	},
 

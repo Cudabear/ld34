@@ -78,6 +78,21 @@ SOUND:
 	- eating hornet sound DONE
 	- collecting seed sound DONE
 
+IMPROVEMENTS:
+	- fix bees getting stuck on solid walls DONE
+	- add music mute option DONE
+	- implement cookie saving progress DONE
+	    - cheat to unlock all DONE
+	    - ability to erase Data DONE
+	- fix level out-of-order problem DONE
+	- fix issues with levels
+		- broken grow spot on bridges level
+		- broken collision on burn level
+	- design remaining 2 levels
+	    - 1 more challenging level
+	    - 1 simple level for end of game
+	- implement end screen
+
 
 
 

@@ -38,10 +38,16 @@ Level.prototype = {
 		this.spawnsLayer = this.tileMap.createLayer('spawns');
 		this.spawnsLayer.alpha = 0;
 		this.mapLayer = this.tileMap.createLayer('level');
+		//this.mapLayer.alpha= 0;
 		this.detailLayer = this.tileMap.createLayer('detail');
+		//this.detailLayer.alpha= 0;
 		this.bridgeLayer = this.tileMap.createLayer('bridges');
 
 		this._parseSpawnLayer();
+
+		this.backbutton = game.add.sprite(10, game.height - 64, 'back');
+        this.backbutton.inputEnabled = true;
+        this.backbutton.events.onInputDown.add(function(){ game.state.start('SelectState');})
 	},
 
 	destroy: function(){
@@ -73,6 +79,8 @@ Level.prototype = {
 			this.collisionLayer.destroy();
 			this.bridgeLayer.destroy();
 		}
+
+		this.backbutton.destroy();
 	},
 
 	update: function(main){
@@ -110,7 +118,9 @@ Level.prototype = {
 	},
 
 	render: function(){
-		
+		this.bugs.forEach(function(bug){
+			game.debug.body(bug.sprite);
+		}, this);
 	}, 
 
 	finish: function(){

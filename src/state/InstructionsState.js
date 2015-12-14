@@ -42,6 +42,8 @@ InstructionsState.prototype = {
         this.text9.anchor.setTo(0.5);
         this.text8 = game.add.bitmapText(game.world.centerX, 430, 'font', 'Good luck!.', 28);
         this.text8.anchor.setTo(0.5);
+        this.text8 = game.add.bitmapText(game.width - 5, game.height - 5, 'font', 'Note: this game uses Cookies to save your progress. \n If they\'re disabled, you\'ll loose your progress if you refresh the page.', 12);
+        this.text8.anchor.setTo(1);
 
         this.catSprite = game.add.sprite(game.world.centerX - 20, 20, 'animcat');
         this.catSprite.animations.add('idle', [0,1]);

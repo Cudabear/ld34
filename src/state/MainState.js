@@ -2,7 +2,6 @@ MainState = function(){ }
 
 MainState.prototype = {
     currentLevel: null,
-    backButton: null,
     RcoolDown: 100,
 
     effects: [],
@@ -32,10 +31,6 @@ MainState.prototype = {
 
 
         this.currentLevel = new Level(Config.currentLevel, this);
-
-        this.backbutton = game.add.sprite(10, game.height - 64, 'back');
-        this.backbutton.inputEnabled = true;
-        this.backbutton.events.onInputDown.add(function(){ game.state.start('SelectState');})
     },
 
     update: function(){
@@ -58,14 +53,6 @@ MainState.prototype = {
                 effect.x = game.width + 200;
             }
         }, this);
-
-        if(this.backButton){
-            this.backButton.bringToTop();
-        }else{
-           // this.backbutton = game.add.sprite(10, game.height - 64, 'back');
-           // this.backbutton.inputEnabled = true;
-           // this.backbutton.events.onInputDown.add(function(){ game.state.start('SelectState');})
-        }
     },
 
     render: function(){
@@ -80,24 +67,23 @@ MainState.prototype = {
         var grabNext = false;
         var tileMapKey = Config.currentLevel;
         var index = 0;
-        for(var key in game.cache._tilemaps){
-            if(grabNext){
-                tileMapKey = key;
+
+        for(var i = 0; i < Config.tileMaps.length - 1; i++){
+            if(Config.currentLevel == Config.tileMaps[i].key){
+                tileMapKey = Config.tileMaps[i+1].key;
+                index = i+1;
                 break;
             }
-            if(Config.currentLevel == key){
-                grabNext = true;
-            }
-            index++;
         }
 
-        if(tileMapKey != Config.currentLevel){
+        if(tileMapKey && tileMapKey != Config.currentLevel){
             this.currentLevel.destroy();
             EventTracking.logEvent('beat-level', 'Level: '+currentLevelId);
             this.currentLevel = new Level(tileMapKey, this);
             Config.currentLevel = tileMapKey;
             this.currentLevelIndex++;
             Config.unlockedLevels[index].unlocked = true;
+            Utils.createCookie("flutter-game-save-data", JSON.stringify(Config.unlockedLevels));
         }else{
             game.state.start('SelectState');
             EventTracking.logEvent('beat-game', 'retries: '+Config.retries);

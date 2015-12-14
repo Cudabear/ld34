@@ -20,7 +20,3 @@ document.addEventListener("DOMContentLoaded", function(event){
         game.state.start('StartupState');
     }
 });
-
-window.isDev = function(){
-    return (window.location.href.indexOf('localhost') > -1);
-}
