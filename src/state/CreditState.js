@@ -61,7 +61,7 @@ CreditState.prototype = {
         text.anchor.setTo(0.5);
         this.text.push(text);
         text.originalY = text.y - game.height;
-        var text = game.add.bitmapText(game.world.centerX, game.height+130, 'font', 'For Ludum Dare 34: Growing | One button input.', 22);
+        var text = game.add.bitmapText(game.world.centerX, game.height+130, 'font', 'For Ludum Dare 34: Growing | Two button input.', 22);
         text.anchor.setTo(0.5);
         text.originalY = text.y - game.height;
         this.text.push(text);

@@ -64,7 +64,7 @@ Cat.prototype = {
 			if(this.sprite.body.velocity.x == 0){
 				this.sprite.animations.play('idle', 2, false);
 			}else{
-				this.sprite.animations.play('walk', 4, false);
+				this.sprite.animations.play('walk', 8, false);
 			}
 
 			if(!this.sprite.body.onFloor()){
