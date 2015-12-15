@@ -48,6 +48,10 @@ Level.prototype = {
 		this.backbutton = game.add.sprite(10, game.height - 64, 'back');
         this.backbutton.inputEnabled = true;
         this.backbutton.events.onInputDown.add(function(){ game.state.start('SelectState');})
+
+        if(this.tileMapId == "End"){
+        	this.superRise = new SuperRisePlant(675,324, this);
+        }
 	},
 
 	destroy: function(){
@@ -112,6 +116,10 @@ Level.prototype = {
 
 		if(!this.cat.isAlive){
 			main.gameOver();
+		}
+
+		if(this.superRise){
+			this.superRise.update(this.cat);
 		}
 
 		

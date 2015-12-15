@@ -21,6 +21,9 @@ LoadState.prototype = {
             game.load.tilemap(tileMap.key, tileMap.jsonPath, null, Phaser.Tilemap.TILED_JSON);
         }, this);
 
+        //hacky, I know... :P
+        game.load.tilemap('flat', 'res/level/flat.json', null, Phaser.Tilemap.TILED_JSON);
+
         Config.fonts.forEach(function(font){
             game.load.bitmapFont(font.key, font.imagePath, font.xmlPath);
         }, this);
@@ -36,7 +39,7 @@ LoadState.prototype = {
     },
 
     create: function(){
-        game.state.start('SelectState');
+        game.state.start('BeginState');
     },
 
     update: function(){

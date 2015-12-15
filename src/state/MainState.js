@@ -85,7 +85,7 @@ MainState.prototype = {
             Config.unlockedLevels[index].unlocked = true;
             Utils.createCookie("flutter-game-save-data", JSON.stringify(Config.unlockedLevels));
         }else{
-            game.state.start('SelectState');
+            game.state.start('CreditState');
             EventTracking.logEvent('beat-game', 'retries: '+Config.retries);
         }
     },

@@ -49,6 +49,13 @@
 	"trimmed": true,
 	"spriteSourceSize": {"x": 0, "y": 0, "w":150, "h":120},
 	"sourceSize": {"w":150, "h":120}
+},{
+	"filename": "fall01",
+	"frame": {"x": 1050, "y": 0, "w":150, "h":120},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x": 0, "y": 0, "w":150, "h":120},
+	"sourceSize": {"w":150, "h":120}
 }
 
 

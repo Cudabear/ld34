@@ -27,6 +27,7 @@ Config = {
         {key: "risegrowth", imagePath: "res/img/risegrowth.png", jsonPath: "res/img/risegrowth.json"},
         {key: "animcat", imagePath: "res/img/blackandwhite.png", jsonPath: "res/img/blackandwhite.json"},
         {key: "flutter1", imagePath: "res/img/flutter1.png", jsonPath: "res/img/flutter.json"},
+        {key: "flutter-all", imagePath: "res/img/flutter_all.png", jsonPath: "res/img/flutter.json"},
         {key: "flutter2", imagePath: "res/img/flutter2.png", jsonPath: "res/img/flutter.json"},
         {key: "flutter3", imagePath: "res/img/flutter3.png", jsonPath: "res/img/flutter.json"},
         {key: "flutter4", imagePath: "res/img/flutter4.png", jsonPath: "res/img/flutter.json"},
@@ -36,7 +37,8 @@ Config = {
         {key: "trapgrowth", imagePath: "res/img/venusflytrap.png", jsonPath: "res/img/venusflytrap.json"},
         {key: "firegrowth", imagePath: "res/img/fireplant.png", jsonPath: "res/img/fireplant.json"},
         {key: "bombgrowth", imagePath: "res/img/bombplant.png", jsonPath: "res/img/bombplant.json"},
-        {key: "jumpgrowth", imagePath: "res/img/growing.png", jsonPath: "res/img/growing.json"}
+        {key: "jumpgrowth", imagePath: "res/img/growing.png", jsonPath: "res/img/growing.json"},
+        {key: "giantjumpgrowth", imagePath: "res/img/giant-growing.png", jsonPath: "res/img/giant-growing.json"}
     ],
     //tilemaps are assumed to be Tiled JSON.
     tileMaps: [
@@ -55,8 +57,8 @@ Config = {
         {key: "Bridges", jsonPath: "res/level/11.json"},
         {key: "Boom", jsonPath: "res/level/12.json"},
         {key: "Process", jsonPath: "res/level/13.json"},
-        {key: "a14", jsonPath: "res/level/14.json"},
-        {key: "a15", jsonPath: "res/level/15.json"}
+        {key: "Climb", jsonPath: "res/level/14.json"},
+        {key: "End", jsonPath: "res/level/15.json"}
     ],
     fonts: [
         //{key: "FontKey", imagePath: "path/to/image", xmlPath: "path/to/XML"}

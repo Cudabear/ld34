@@ -93,6 +93,7 @@ SelectState.prototype = {
         text.titleText = game.add.bitmapText(game.world.centerX, 50, 'font', 'Flutter', 38);
         text.titleText.anchor.setTo(0.5);
         text.titleText.inputEnabled = true;
+        text.titleText.alpha = 0;
         //cheat code for debugging, or well, cheating.
         text.titleText.events.onInputDown.add(function(){
             Config.unlockedLevels.forEach(function(level){
@@ -104,12 +105,16 @@ SelectState.prototype = {
         });
         text.infoText = game.add.bitmapText(game.world.centerX, 100, 'font', 'A game created in 72 hours for Ludum Dare 34.', 24);
         text.infoText.anchor.setTo(0.5);
+        text.infoText.alpha = 0;
         text.creatorText = game.add.bitmapText(game.world.centerX, 130, 'font', 'Code and Sound by Cudabear. Art by Melda Silas.', 20);
         text.creatorText.anchor.setTo(0.5);
+        text.creatorText.alpha = 0;
 
         this.instructionLink = game.add.sprite(this.game.width - 128 - 50, 175 + 128, 'level');
         this.instructionText = game.add.bitmapText(this.instructionLink.x + this.instructionLink.width/2,
          this.instructionLink.y + this.instructionLink.height/2, 'font', 'Help', 14);
+        this.instructionLink.alpha =0;
+        this.instructionText.alpha = 0;
         this.instructionText.anchor.setTo(0.5);
         this.instructionLink.inputEnabled = true;
         this.instructionLink.events.onInputDown.add(function(){
@@ -119,6 +124,8 @@ SelectState.prototype = {
         this.eraseLink = game.add.sprite(this.game.width - 128 - 50, 175 + 2*128, 'level');
         this.eraseText = game.add.bitmapText(this.eraseLink.x + this.eraseLink.width/2,
          this.eraseLink.y + this.eraseLink.height/2, 'font', 'Erase\n Data', 14);
+        this.eraseLink.alpha = 0;
+        this.eraseText.alpha = 0;
         this.eraseText.anchor.setTo(0.5);
         this.eraseLink.inputEnabled = true;
         this.eraseLink.events.onInputDown.add(function(){
@@ -132,6 +139,8 @@ SelectState.prototype = {
         this.muteMusicLink = game.add.sprite(this.game.width - 128 - 50, 175, 'level');
         this.muteMusicText = game.add.bitmapText(this.muteMusicLink.x + this.muteMusicLink.width/2,
          this.muteMusicLink.y + this.muteMusicLink.height/2, 'font', bgmMuted ? 'Play\nMusic' : 'Mute\nMusic', 14);
+        this.muteMusicLink.alpha = 0;
+        this.muteMusicText.alpha = 0;
         this.muteMusicText.anchor.setTo(0.5);
         this.muteMusicLink.inputEnabled = true;
         this.muteMusicLink.events.onInputDown.add(function(){
@@ -173,6 +182,44 @@ SelectState.prototype = {
                 effect.x = game.width + 200;
             }
         }, this);
+
+        this.levels.forEach(function(level){
+            if(level.alpha < 1){
+                level.alpha += 0.02;
+                if(!level.unlocked){
+                    level.titleText.alpha += 0.002;
+                }else{
+                    level.titleText.alpha += 0.02;
+                }
+            }
+        }, this);
+
+        if(text.titleText.alpha < 1){
+            text.titleText.alpha += 0.02;
+        }
+
+        if(text.infoText.alpha < 1){
+            text.infoText.alpha += 0.02;
+        }
+
+        if(text.creatorText.alpha < 1){
+            text.creatorText.alpha += 0.02;
+        }
+
+        if(this.muteMusicLink.alpha < 1){
+            this.muteMusicLink.alpha += 0.02;
+            this.muteMusicText.alpha += 0.02;
+        }
+
+        if(this.instructionLink.alpha < 1){
+            this.instructionLink.alpha += 0.02;
+            this.instructionText.alpha += 0.02;
+        }
+
+        if(this.eraseLink.alpha < 1){
+            this.eraseLink.alpha += 0.02;
+            this.eraseText.alpha += 0.02;
+        }
     },
 
     render: function(){
@@ -190,12 +237,15 @@ SelectState.prototype = {
             level.inputEnabled = true;
             level.levelKey = key;
             var unlocked = this.isLevelUnlocked(key);
+            level.alpha = 0;
+            level.titleText.alpha = 0;
 
             if(unlocked){
                 level.events.onInputDown.add(function(){
                     Config.currentLevel = this.levelKey;
                     game.state.start('MainState');
                 }, level)
+                level.unlocked = true;
             }else{
                 level.titleText.alpha = 0.2;
                 level.titleText.setText("???");
