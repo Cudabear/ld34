@@ -93,7 +93,6 @@ SelectState.prototype = {
         text.titleText = game.add.bitmapText(game.world.centerX, 50, 'font', 'Flutter', 38);
         text.titleText.anchor.setTo(0.5);
         text.titleText.inputEnabled = true;
-        text.titleText.alpha = 0;
         //cheat code for debugging, or well, cheating.
         text.titleText.events.onInputDown.add(function(){
             Config.unlockedLevels.forEach(function(level){

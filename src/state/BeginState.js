@@ -21,6 +21,11 @@ BeginState.prototype = {
             effect.scale.setTo(0.5);
             this.effects.push(effect);
         }
+
+        this.titleText = game.add.bitmapText(game.world.centerX, 50, 'font', 'Flutter', 38);
+        this.titleText.anchor.setTo(0.5);
+        this.titleText.inputEnabled = true;
+        this.titleText.alpha = 0;
            
         this.tileMap = game.add.tilemap('flat');
         this.tileMap.addTilesetImage('tileset','tileset');
@@ -66,6 +71,12 @@ BeginState.prototype = {
                 this.detailLayer.alpha -= 0.02;
             }else{
                 game.state.start('SelectState');
+            }
+        }
+
+        if(this.catSprite.x > game.world.centerX){
+            if(this.titleText.alpha < 1){
+                this.titleText.alpha += 0.02;
             }
         }
 
