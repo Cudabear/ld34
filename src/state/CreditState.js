@@ -57,7 +57,7 @@ CreditState.prototype = {
         text.anchor.setTo(0.5);
         this.text.push(text);
         text.originalY = text.y - game.height;
-        var text = game.add.bitmapText(game.world.centerX, game.height+90, 'font', 'This game was created in 48 hours by a team of two', 22);
+        var text = game.add.bitmapText(game.world.centerX, game.height+90, 'font', 'This game was created in 72 hours by a team of two', 22);
         text.anchor.setTo(0.5);
         this.text.push(text);
         text.originalY = text.y - game.height;
